@@ -6,6 +6,7 @@ app.use(express.json());
 
 app.post("/events", (req, res) => {
   const event = req.body;
+  console.log(event);
   try {
     axios.post("http://localhost:4000/events", event);
   } catch (e) {
@@ -16,11 +17,11 @@ app.post("/events", (req, res) => {
   } catch (e) {
     console.log(e.message);
   }
-  //   try {
-  //     axios.post("http://localhost:4002/events", event);
-  //   } catch (e) {
-  //     console.log(e.message);
-  //   }
+  try {
+    axios.post("http://localhost:4002/events", event);
+  } catch (e) {
+    console.log(e.message);
+  }
   res.send({ status: "OK" });
 });
 const PORT = 4005;
