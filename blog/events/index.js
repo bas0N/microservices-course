@@ -22,6 +22,11 @@ app.post("/events", (req, res) => {
   } catch (e) {
     console.log(e.message);
   }
+  try {
+    axios.post("http://localhost:4003/events", event);
+  } catch (e) {
+    console.log(e.message);
+  }
   res.send({ status: "OK" });
 });
 const PORT = 4005;
